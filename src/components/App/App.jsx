@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import ItemForm from '../ItemForm/ItemForm.jsx'
@@ -65,10 +66,10 @@ function App() {
             <Header />
             
             <main>
-                {/* <ItemForm props={addItem} />
-                <Basket props={itemList } />  //resetAll, deleteAll */}
-                <ItemList props={itemList} /> 
-                {/* //putID deleteID */}
+                <ItemForm />
+                {/*
+                <Basket props={itemList, resetAll, deleteAll } />
+                <ItemList props={itemList, put/ID, delete/ID} /> */} 
             </main>
             
         </div>
