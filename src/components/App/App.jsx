@@ -56,6 +56,19 @@ function App() {
         })
     }
 
+    const updateStatus = (id) =>{
+        axios({
+          method: 'PUT',
+          url:`/items/${id}`,
+        })
+        .then((response) =>{
+            fetchItems();
+        })
+        .catch((error) => {
+            console.log('Error in update buy status', error);
+        })
+    }
+
     //PUT/ID to update individual items 
 
     
@@ -70,6 +83,7 @@ function App() {
                 <ItemList 
                 itemList={itemList}
                 deleteOneItem={deleteOneItem}
+                updateStatus={updateStatus}
                 /> 
                 {/* //putID deleteID */}
             </main>
