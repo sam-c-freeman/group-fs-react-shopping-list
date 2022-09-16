@@ -22,21 +22,37 @@ router.get('/', (req, res) => {
 //Delete Route
 
 //Put route
+router.put('/:id', (req, res) => {
+    const sqlText = `
+    UPDATE "shoppingList"
+        SET status = TRUE
+        WHERE id=$1;
+    `
+    const sqlValues =[req.params.id];
+    pool.query(sqlText, sqlValues)
+        .then((dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch((dbErr) => {
+            console.log('Error in updating buy status', dbErr);
+        })
+})
+
 
 //Delete specific item
 
 router.delete('/:id', (req, res) => {
     const sqlText = `
-    DELETE FROM shoppingList
+    DELETE FROM "shoppingList"
     WHERE id=$1;
 `
 const sqlValues =[req.params.id];
-pool.query(sqlText,sqlValues)
+pool.query(sqlText, sqlValues)
     .then((dbRes) => {
         res.sendStatus(200);
     })
     .catch((dbErr) => {
-        console.log('error in deleting student', dbErr);
+        console.log('error in deleting item', dbErr);
     })
 })
 

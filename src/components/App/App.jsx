@@ -43,7 +43,7 @@ function App() {
 
     //DELETE/ID individual item function to pass to ItemList
 
-    const deleteItem = (id) =>{
+    const deleteOneItem = (id) =>{
         axios({
           method: 'DELETE',
           url:`/items/${id}`,
@@ -53,6 +53,19 @@ function App() {
         })
         .catch((error) => {
             console.log('error in delete individual item', error);
+        })
+    }
+
+    const updateStatus = (id) =>{
+        axios({
+          method: 'PUT',
+          url:`/items/${id}`,
+        })
+        .then((response) =>{
+            fetchItems();
+        })
+        .catch((error) => {
+            console.log('Error in update buy status', error);
         })
     }
 
@@ -67,7 +80,11 @@ function App() {
             <main>
                 {/* <ItemForm props={addItem} />
                 <Basket props={itemList } />  //resetAll, deleteAll */}
-                <ItemList props={itemList} /> 
+                <ItemList 
+                itemList={itemList}
+                deleteOneItem={deleteOneItem}
+                updateStatus={updateStatus}
+                /> 
                 {/* //putID deleteID */}
             </main>
             
