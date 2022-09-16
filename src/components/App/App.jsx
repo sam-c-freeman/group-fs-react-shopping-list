@@ -22,7 +22,28 @@ function App() {
 
     //GET request function
 
-    //fetchItems();  
+    const fetchStudents = () =>{
+        axios({
+            method: 'GET',
+            url: '/students'
+        })
+        .then ((response) => {
+            setStudentList(response.data);
+        })
+        .catch((error) => {
+            console.log ('fetchStudents failed', error);
+        })
+
+    }
+
+    const fetchItems = () => {
+        axios({
+            method: 'GET',
+            url: '/items'
+        })
+    }
+
+
 
 
 
