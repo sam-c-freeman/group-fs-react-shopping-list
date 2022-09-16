@@ -1,4 +1,3 @@
-import React from 'react';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx'
@@ -43,9 +42,38 @@ function App() {
 
 
 
-    //DELETE (all) function
+    //delete (all) function
+    const clearBasket = () => {
+        console.log('DELETE');
+        axios({
+            method: 'DELETE',
+            url: '/items'
+        })
+        .then((response) => {
+            console.log(response);
+            fetchItems();
+        })
+        .catch((error) => {
+            console.log ('clearBasket failed', error)
+        })
+    }
 
     //PUT (all) to reset list
+
+    const resetBasket = () => {
+        console.log('RESET');
+        axios({
+            method: 'PUT',
+            url: '/items'
+        })
+        .then((response) => {
+            console.log(response);
+            fetchItems();
+        })
+        .catch((error) => {
+            console.log ('clearBasket failed', error)
+        })
+    }
 
     //DELETE/ID individual item function to pass to ItemList
 
@@ -55,11 +83,13 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <main>
-                {/* <ItemForm props={addItem} />
-                <Basket props={itemList, resetAll, deleteAll } />
-                <ItemList props={itemList, put/ID, delete/ID} /> */} 
-            </main>
+                
+            <Basket 
+                resetBasket = {resetBasket}
+                clearBasket = {clearBasket}
+            />
+        
+
         </div>
     );
 }
