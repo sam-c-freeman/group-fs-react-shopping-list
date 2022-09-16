@@ -20,7 +20,7 @@ router.post('/', (req, res)=> {
     const sqlValues = [name, quantity, unit];
     pool.query(sqlQuery,sqlValues)
         .then((response)=> {
-            console.log('item has been posted');
+            console.log('item has been posted')
             res.sendStatus(200);
         })
         .catch((error)=> {

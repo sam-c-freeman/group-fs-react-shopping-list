@@ -29,21 +29,24 @@ export default function ItemForm(){
 
     return(
         <form onSubmit={addItem}>
-            <input>Item:
+            <label htmlFor="name-input">Name:</label>
+            <input 
                 type="text"
                 value={itemName}
-                onChange={ e => setItemName(e.target.value)}
-            </input>
-            <input>Quantity:
+                onChange={ (e) => setItemName(e.target.value)}
+            />
+            <label htmlFor="name-input">Quantity:</label>
+            <input
                 type="number"
                 value={itemQuantity}
-                onChange={ e => setItemQuantity(e.target.value)}
-            </input>
-            <input>Quantity:
+                onChange={ (e) => setItemQuantity(e.target.value)}
+            />
+            <label htmlFor="name-input">Unit:</label>
+            <input
                 type="text"
                 value={quantityUnit}
-                onChange={ e => setQuantityUnit(e.target.value)}
-            </input>
+                onChange={ (e) => setQuantityUnit(e.target.value)}
+            />
             <button>Save</button>
         </form>
     )
