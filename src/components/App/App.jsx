@@ -66,7 +66,8 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                {/* <ItemForm props={addItem} />
+                <ItemForm />
+                {/*
                 <Basket props={itemList, resetAll, deleteAll } />
                 <ItemList props={itemList, put/ID, delete/ID} /> */} 
             </main>
