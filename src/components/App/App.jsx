@@ -43,7 +43,7 @@ function App() {
 
     //DELETE/ID individual item function to pass to ItemList
 
-    const deleteItem = (id) =>{
+    const deleteOneItem = (id) =>{
         axios({
           method: 'DELETE',
           url:`/items/${id}`,
@@ -67,7 +67,10 @@ function App() {
             <main>
                 {/* <ItemForm props={addItem} />
                 <Basket props={itemList } />  //resetAll, deleteAll */}
-                <ItemList props={itemList} /> 
+                <ItemList 
+                itemList={itemList}
+                deleteOneItem={deleteOneItem}
+                /> 
                 {/* //putID deleteID */}
             </main>
             
