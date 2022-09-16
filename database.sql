@@ -6,7 +6,8 @@ CREATE TABLE "shoppingList" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR (80) NOT NULL,
 	"quantity" DECIMAL (6,2),
-	"unit" VARCHAR (20)
+	"unit" VARCHAR (20),
+    "status" BOOL DEFAULT FALSE
 	);
 	
 INSERT INTO "shoppingList" (name, quantity, unit)

@@ -17,34 +17,24 @@ function App() {
 
     useEffect(() => {
         fetchItems();
-    }, [])
-
+    }, []);
 
     //GET request function
-
-    const fetchStudents = () =>{
-        axios({
-            method: 'GET',
-            url: '/students'
-        })
-        .then ((response) => {
-            setStudentList(response.data);
-        })
-        .catch((error) => {
-            console.log ('fetchStudents failed', error);
-        })
-
-    }
 
     const fetchItems = () => {
         axios({
             method: 'GET',
             url: '/items'
         })
+        .then ((response) => {
+            console.log(response.data);
+            setItemList(response.data);
+        })
+        .catch((error) => {
+            console.log ('fetchItems failed', error);
+        })
+
     }
-
-
-
 
 
     //POST  request function
