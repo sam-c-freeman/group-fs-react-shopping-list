@@ -1,6 +1,4 @@
-function ItemList ({props}) {
-    let itemList = props;
-    console.log(itemList);
+function ItemList ({itemList, deleteOneItem}) {
     return (
         itemList.map((item) => {
             return(
@@ -8,7 +6,7 @@ function ItemList ({props}) {
                 <p>{item.name}</p>
                 <p>{item.quantity} {item.units}</p>
                 <button>Buy</button>
-                <button>Remove</button>
+                <button onClick={ () => deleteOneItem(item.id)}>Remove</button>
             </div> 
             )}
     ))

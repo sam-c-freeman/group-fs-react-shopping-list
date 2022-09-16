@@ -27,16 +27,16 @@ router.get('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const sqlText = `
-    DELETE FROM shoppingList
+    DELETE FROM "shoppingList"
     WHERE id=$1;
 `
 const sqlValues =[req.params.id];
-pool.query(sqlText,sqlValues)
+pool.query(sqlText, sqlValues)
     .then((dbRes) => {
         res.sendStatus(200);
     })
     .catch((dbErr) => {
-        console.log('error in deleting student', dbErr);
+        console.log('error in deleting item', dbErr);
     })
 })
 
